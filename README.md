@@ -10,52 +10,53 @@
 
 
 // 新建一个View，并实现代理方法
-#import "RWPHorizontalScrollView.h"
+    #import "RWPHorizontalScrollView.h"
 
-@interface ItemView : UIView <RWPHorizontalViewProtocol>
+    @interface ItemView : UIView <RWPHorizontalViewProtocol>
 
-@end
+    @end
 
-#import "ItemView.h"
+    #import "ItemView.h"
 
-@implementation ItemView
-
-- (CGFloat)contentWidth {
-    return 200;
-}
-
-- (UIEdgeInsets)contentInsets {
-    return UIEdgeInsetsMake(0, 0, 0, 10);
-}
-
-@end
+    @implementation ItemView
 
 
+    - (CGFloat)contentWidth {
+        return 200;
+    }
 
-RWPHorizontalScrollView *horizontalScrollView = [[RWPHorizontalScrollView alloc] init];
-horizontalScrollView.backgroundColor = [UIColor whiteColor];
-horizontalScrollView.contentInsets = UIEdgeInsetsMake(10, 10, 10, 0);
+    - (UIEdgeInsets)contentInsets {
+        return UIEdgeInsetsMake(0, 0, 0, 10);
+    }
 
-[self.view addSubview:horizontalScrollView];
-[horizontalScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-    make.left.right.mas_equalTo(0);
-    make.top.mas_equalTo(100);
-    make.height.mas_equalTo(200);
-}];
+    @end
 
-NSMutableArray *items = [NSMutableArray array];
-for (int i=0; i<10; i++) {
-    ItemView *itemV = [[ItemView alloc] init];
-    itemV.backgroundColor = [UIColor redColor];
-    itemV.userInteractionEnabled = NO;
-    [items addObject:itemV];
-}
 
-horizontalScrollView.itemViews = items;
 
-[horizontalScrollView setClickAtIndex:^(NSInteger index) {
+    RWPHorizontalScrollView *horizontalScrollView = [[RWPHorizontalScrollView alloc] init];
+    horizontalScrollView.backgroundColor = [UIColor whiteColor];
+    horizontalScrollView.contentInsets = UIEdgeInsetsMake(10, 10, 10, 0);
     
-}];
+    [self.view addSubview:horizontalScrollView];
+    [horizontalScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(0);
+        make.top.mas_equalTo(100);
+        make.height.mas_equalTo(200);
+    }];
+    
+    NSMutableArray *items = [NSMutableArray array];
+    for (int i=0; i<10; i++) {
+        ItemView *itemV = [[ItemView alloc] init];
+        itemV.backgroundColor = [UIColor redColor];
+        itemV.userInteractionEnabled = NO;
+        [items addObject:itemV];
+    }
+    
+    horizontalScrollView.itemViews = items;
+    
+    [horizontalScrollView setClickAtIndex:^(NSInteger index) {
+        
+    }];
 
 
 
@@ -67,7 +68,7 @@ RWPHorizontalScrollView is available through [CocoaPods](https://cocoapods.org).
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'RWPHorizontalScrollView'
+pod 'RWPHorizontalScrollView', :git => 'https://github.com/rocky-ren/RWPHorizontalScrollView.git'
 ```
 
 ## Author
