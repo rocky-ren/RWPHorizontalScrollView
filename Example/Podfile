@@ -1,0 +1,13 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '8.0'
+
+target 'RWPHorizontalScrollView_Example' do
+  pod 'RWPHorizontalScrollView', :path => '../'
+
+  target 'RWPHorizontalScrollView_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase'
+  end
+end
